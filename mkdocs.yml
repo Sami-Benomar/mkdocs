@@ -1,0 +1,4 @@
+site_name: Señor destructor de mundos
+nav:
+  - Principal: index.md
+  - Acerca de: about.md
