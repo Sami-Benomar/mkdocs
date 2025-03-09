@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../Practica5-1/">
       
       
-        <link rel="next" href="../Practica5-1/">
+        <link rel="next" href="../Practica5-4/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Acerca de - Sami Benomar Megri</title>
+        <title>Practica5-2 - Sami Benomar Megri</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#acerca-de" class="md-skip">
+        <a href="#practica5-2" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Acerca de
+              Practica5-2
             
           </span>
         </div>
@@ -217,19 +217,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -239,7 +230,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -269,10 +259,31 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../Practica5-2/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Practica5-2
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -282,6 +293,50 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-composeyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      docker-compose.yml
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="docker-compose.yml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#https-portal" class="md-nav__link">
+    <span class="md-ellipsis">
+      https-portal
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -327,6 +382,38 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-composeyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      docker-compose.yml
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="docker-compose.yml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#https-portal" class="md-nav__link">
+    <span class="md-ellipsis">
+      https-portal
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -341,8 +428,25 @@
 
 
 
-<h1 id="acerca-de">Acerca de</h1>
-<p>texto de ejemplo</p>
+<h1 id="practica5-2">Practica5-2</h1>
+<h2 id="docker-composeyml">docker-compose.yml</h2>
+<p>Este archivo de configuración define un entorno para desplegar una aplicación <strong>WordPress</strong> con una base de datos <strong>MySQL</strong>, <strong>phpMyAdmin</strong> para gestionar la base de datos, y un servidor <strong>HTTPS</strong> para conexiones seguras.</p>
+<p>🐬 <strong>MySQL</strong>: Base de datos para WordPress. Se configura con variables de entorno y un volumen para almacenar datos.
+🖥️ <strong>WordPress</strong>: Aplicación principal. Depende de MySQL y usa un volumen para almacenar archivos.
+🗃️ <strong>phpMyAdmin</strong>: Herramienta para gestionar la base de datos MySQL. Depende de MySQL.
+✉️ <strong>HTTPS-Portal</strong>: Servidor que maneja conexiones seguras (HTTP/HTTPS) para WordPress.</p>
+<h3 id="https-portal">https-portal</h3>
+<p>El servicio <strong><code>https-portal</code></strong> es un contenedor que actúa como un servidor proxy inverso para manejar conexiones seguras (HTTPS) y redirigirlas a la aplicación WordPress. Su función principal es:</p>
+<pre><code class="language-yaml">https-portal:
+  environment:
+    DOMAINS: &quot;${DOMAIN} -&gt; http://wordpress:8080&quot;
+    STAGE: 'production'
+</code></pre>
+<ul>
+<li><strong><code>DOMAINS</code></strong>: Define el dominio y redirige el tráfico a WordPress.</li>
+<li><strong><code>STAGE</code></strong>: En modo <code>production</code>, habilita HTTPS con certificados válidos.</li>
+</ul>
+<p><img alt="" src="../capturas/wordpress.png" /></p>
 
 
 
